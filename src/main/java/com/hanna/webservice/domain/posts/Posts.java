@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter //Entity클래스에선 절대 Setter메소드 생성 X
 @NoArgsConstructor
 @Entity //테이블과 링크될 클래스 (보통_카멜케이스로 지정)
-public class Posts {
+public class Posts extends BaseTimeEntity{
 
     @Id //pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
@@ -28,6 +28,11 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 
 }

@@ -1,0 +1,30 @@
+package com.hanna.webservice.web;
+
+import com.hanna.webservice.service.posts.PostsService;
+import com.hanna.webservice.web.dto.PostsSaveRequestDto;
+import com.hanna.webservice.web.dto.PostsResponseDto;
+import com.hanna.webservice.web.dto.PostsUpdateRequestDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+@RequiredArgsConstructor
+@RestController
+public class PostsApiController {
+
+    private final PostsService postsService;
+
+    @PostMapping("/api/v1/posts")
+    public Long save(@RequestBody PostsSaveRequestDto postsSaveRequestDto) { //등록
+        return postsService.save(postsSaveRequestDto);
+    }
+
+    @PutMapping("/api/v1/posts/{id}") //{} PathVariable
+    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) { //수정
+        return postsService.update(id,requestDto);
+    }
+
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById (@PathVariable Long id) { //조회
+        return postsService.findById(id);
+    }
+}
