@@ -38,4 +38,4 @@ out/
 .vscode/
 
 ##Google ##
-application-oauth.properties
+!**/src/main/resources/*.properties
