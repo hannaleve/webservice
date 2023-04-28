@@ -1,0 +1,61 @@
+{{>layout/header}}
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3>Product Registration</h3>
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="productName" class="form-label mt-4">상품명</label>
+                        <input type="text" class="form-control text-center" id="title" placeholder="상품명을 기재해주세요.">
+                    </div>
+                    <div class="form-group">
+                        <label for="author" class="form-label mt-4">작성자</label>
+                        <input type="text" class="form-control text-center" id="author">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount" class="form-label mt-4">금액입력</label>
+                        <input type="number" class="form-control text-center" id="amount" placeholder="0">
+                        <small id="numberText" class="form-text text-muted">숫자로 입력하세요.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">수량선택</label>
+                        <select class="form-select" id="exampleSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content" class="form-label mt-4">상품설명</label>
+                        <textarea class="form-control" id="content" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="formFile" class="form-label mt-4">상품업로드</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+
+                    <fieldset class="form-group">
+                        <legend class="mt-4">색상</legend>
+                        <label><input type="checkbox" name="color" value="white"> White</label>
+                        <label><input type="checkbox" name="color" value="black"> Black</label>
+                        <label><input type="checkbox" name="color" value="blue"> Blue</label>
+                        <label><input type="checkbox" name="color" value="red"> Red</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend class="mt-4">사이즈</legend>
+                        <label><input type="checkbox" name="color" value="s"> S</label>
+                        <label><input type="checkbox" name="color" value="m"> M</label>
+                        <label><input type="checkbox" name="color" value="l"> L</label>
+                    </fieldset>
+
+                </fieldset>
+            </form>
+            <button type="submit" class="btn btn-danger disabled" id="btn-save">등록</button>
+        </div>
+    </div>
+</div>
+{{>layout/footer}}
