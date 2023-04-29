@@ -7,7 +7,18 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <!--로그인영역 -->
+
+                        <!--로그인했다면? -->
+                        {{#userName}}
+                        <li class="nav-item">{{userName}}</li>
+                        <li class="nav-item"><a class="dropdown-item" href="/logout">LOGOUT</a></li>
+                        {{/userName}}
+
+                        <!--안했다면 ? -->
+                        {{^userName}}
+                            <li class="nav-item"><a class="dropdown-item" href="/oauth2/authorization/google">LOGIN</a></li>
+                        {{/userName}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
