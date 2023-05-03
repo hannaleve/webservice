@@ -1,5 +1,6 @@
 package com.hanna.webservice.web;
 
+import com.hanna.webservice.config.auth.LoginUser;
 import com.hanna.webservice.config.auth.dto.SessionUser;
 import com.hanna.webservice.service.posts.PostsService;
 import com.hanna.webservice.web.dto.PostsResponseDto;
@@ -18,10 +19,9 @@ public class indexController { //Shop
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) { //메인페이지
+    public String index(Model model, @LoginUser SessionUser user) { //메인페이지
         model.addAttribute("posts", postsService.findAllDesc());
 
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }

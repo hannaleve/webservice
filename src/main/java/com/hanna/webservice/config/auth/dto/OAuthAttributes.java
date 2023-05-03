@@ -42,14 +42,14 @@ public class OAuthAttributes { //OAuth2User의 attribute를 담을 DTO
     /*
     User Entity생성
     OAuthAttribute에서 엔티티 생성하는 시점 - 처음 가입 시
-    가입할 때 기본 권한 GUEST
+    가입할 때 기본 권한 USER
      */
     public User toEntity() {
         return User.builder()
                 .name(name)
                 .email(email)
                 .picture(picture)
-                .role(Role.GUEST)
+                .role(Role.USER)
                 .build();
     }
 }
