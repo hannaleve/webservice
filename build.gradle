@@ -38,7 +38,14 @@ dependencies {
     //mysql
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.27'
 
+    //thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '3.2.0'
 
+
+    //Log4j2
+    testCompileOnly('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
 
 
 

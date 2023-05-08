@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragment/layout}" >
+<!-- header -->
+<th:block th:replace="fragment/header :: headerFragment"></th:block>
+
+<!-- content -->
+<body layout:fragment="content">
+
+<!--목록 출력 영역-->
+<table class="table table-hover table-bordered">
+
+  <thread class="thead-strong">
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>최초수정일</th>
+    </tr>
+  </thread>
+
+  <!--    <tbody id="tbody">
+      {{#posts}}
+      <tr>
+          <td>{{id}}</td>
+          <td><a href="/posts/update/{{id}}">{{title}}</a></td>
+          <td>{{author}}</td>
+          <td>{{modifiedDate}}</td>
+      </tr>
+      {{/posts}}
+      </tbody>-->
+</table>
+</body>
+</html>
+
+
+<th:block layout:fragment="script">
+  <script th:inline="javascript">
+  </script>
+</th:block>

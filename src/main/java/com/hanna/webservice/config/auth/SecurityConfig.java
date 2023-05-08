@@ -43,7 +43,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated()  //설정된 값들 이외 나머지 URL는 authenticated() 추가하여 나머지 URL들은 모두 인증된 사용자만 허용 (인증된 사용자 -> 로그인한 사용자)
                 .and()
                 .logout() //로그아웃 기능에 대한 여러 설정 진입
-                .logoutSuccessUrl("/") //로그아웃 성공 시 주소 "/" 이동
+                .logoutSuccessUrl("/") //로그아웃 성공 시 주소 "/walk/main" 이동
                 .and()
                 .oauth2Login() //OAuth2 로그인 기능에 대한 여러 설정 진입점
                 .userInfoEndpoint() //OAuth2 로그인 성공 이후 사용자 정보를 가져올 때의 설정 담당

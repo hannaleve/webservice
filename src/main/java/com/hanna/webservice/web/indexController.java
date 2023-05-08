@@ -9,37 +9,38 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @RequiredArgsConstructor
 @Controller
-public class indexController { //Shop
+public class indexController { //메인
 
     private final PostsService postsService;
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) { //메인페이지
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
+
         return "index";
+
     }
 
-    @GetMapping("/posts/save")
-    public String postsSave() {
-        return "posts-save";
-    } //등록페이지
-
-    @GetMapping("/posts/update/{id}")
-    public String postsUpdate(@PathVariable Long id, Model model) { //수정페이지
-        PostsResponseDto dto = postsService.findById(id);
-        model.addAttribute("post",dto);
-
-        return "posts-update";
-    }
+//    @GetMapping("/posts/save")
+//    public String postsSave() {
+//        return "posts-save";
+//    } //등록페이지
+//
+//    @GetMapping("/posts/update/{id}")
+//    public String postsUpdate(@PathVariable Long id, Model model) { //수정페이지
+//        PostsResponseDto dto = postsService.findById(id);
+//        model.addAttribute("post",dto);
+//
+//        return "posts-update";
+//    }
 
 
 
