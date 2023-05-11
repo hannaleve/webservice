@@ -1,9 +1,9 @@
 package com.hanna.webservice.web;
 
-import com.hanna.webservice.service.posts.PostsService;
-import com.hanna.webservice.web.dto.PostsSaveRequestDto;
-import com.hanna.webservice.web.dto.PostsResponseDto;
-import com.hanna.webservice.web.dto.PostsUpdateRequestDto;
+import com.hanna.webservice.service.PostsService;
+import com.hanna.webservice.dto.posts.PostsSaveRequestDto;
+import com.hanna.webservice.dto.posts.PostsResponseDto;
+import com.hanna.webservice.dto.posts.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

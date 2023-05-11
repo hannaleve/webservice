@@ -1,5 +1,6 @@
-package com.hanna.webservice.domain.posts;
+package com.hanna.webservice.repository;
 
+import com.hanna.webservice.domain.posts.Posts;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

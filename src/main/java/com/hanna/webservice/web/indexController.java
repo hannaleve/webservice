@@ -1,14 +1,15 @@
 package com.hanna.webservice.web;
 
 import com.hanna.webservice.config.auth.LoginUser;
-import com.hanna.webservice.config.auth.dto.SessionUser;
-import com.hanna.webservice.service.posts.PostsService;
-import com.hanna.webservice.web.dto.PostsResponseDto;
+import com.hanna.webservice.config.dto.SessionUser;
+import com.hanna.webservice.service.PostsService;
+import com.hanna.webservice.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @RequiredArgsConstructor
 @Controller
@@ -16,6 +17,7 @@ public class indexController { //메인
 
     private final PostsService postsService;
     private final HttpSession httpSession;
+    private final UserService userService;
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
@@ -28,6 +30,7 @@ public class indexController { //메인
         return "index";
 
     }
+
 
 //    @GetMapping("/posts/save")
 //    public String postsSave() {

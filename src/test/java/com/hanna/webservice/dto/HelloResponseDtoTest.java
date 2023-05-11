@@ -1,5 +1,6 @@
-package com.hanna.webservice.web.dto;
+package com.hanna.webservice.dto;
 
+import com.hanna.webservice.dto.posts.HelloResponseDto;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 

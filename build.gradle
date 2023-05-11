@@ -24,23 +24,26 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.projectlombok:lombok')
-    implementation('org.springframework.boot:spring-boot-starter-mustache')
-
-    // JUnit5
-    testImplementation("org.junit.platform:junit-platform-launcher:1.5.2")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    implementation ("com.h2database:h2")
 
     //mysql
-    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.27'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+
+    //security
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    //jwt
+    implementation 'com.auth0:java-jwt:4.2.1'
+    implementation "io.jsonwebtoken:jjwt:0.9.1"
 
     //thymeleaf
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '3.2.0'
+
+
+    //    implementation('org.springframework.boot:spring-boot-starter-mustache')
+    //    implementation ("com.h2database:h2")
+
 
 
     //Log4j2
@@ -48,9 +51,15 @@ dependencies {
     testAnnotationProcessor('org.projectlombok:lombok')
 
 
+    // JUnit5
+    testImplementation("org.junit.platform:junit-platform-launcher:1.5.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
 
 }
 
-test { // (2)
+test {
     useJUnitPlatform()
 }

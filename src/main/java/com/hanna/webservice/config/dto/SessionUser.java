@@ -1,4 +1,4 @@
-package com.hanna.webservice.config.auth.dto;
+package com.hanna.webservice.config.dto;
 
 import com.hanna.webservice.domain.user.User;
 import lombok.Getter;
@@ -11,10 +11,10 @@ public class SessionUser implements Serializable { //세션에 사용자정보 �
     private String email;
     private String picture;
 
-    public SessionUser(User Users) {
-        this.name = Users.getName();
-        this.email = Users.getEmail();
-        this.picture = Users.getPicture();
+    public SessionUser(User User) {
+        this.name = User.getNickname();
+        this.email = User.getEmail();
+        this.picture = User.getPicture();
     }
 
 }

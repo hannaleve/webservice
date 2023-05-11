@@ -1,6 +1,6 @@
 package com.hanna.webservice.config.auth;
 
-import com.hanna.webservice.config.auth.dto.SessionUser;
+import com.hanna.webservice.config.dto.SessionUser;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;

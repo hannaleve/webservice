@@ -1,9 +1,9 @@
 package com.hanna.webservice.web;
 
 import com.hanna.webservice.domain.posts.Posts;
-import com.hanna.webservice.domain.posts.PostsRepository;
-import com.hanna.webservice.web.dto.PostsSaveRequestDto;
-import com.hanna.webservice.web.dto.PostsUpdateRequestDto;
+import com.hanna.webservice.repository.PostsRepository;
+import com.hanna.webservice.dto.posts.PostsSaveRequestDto;
+import com.hanna.webservice.dto.posts.PostsUpdateRequestDto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

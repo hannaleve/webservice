@@ -1,11 +1,11 @@
-package com.hanna.webservice.service.posts;
+package com.hanna.webservice.service;
 
 import com.hanna.webservice.domain.posts.Posts;
-import com.hanna.webservice.domain.posts.PostsRepository;
-import com.hanna.webservice.web.dto.PostsListResponseDto;
-import com.hanna.webservice.web.dto.PostsResponseDto;
-import com.hanna.webservice.web.dto.PostsSaveRequestDto;
-import com.hanna.webservice.web.dto.PostsUpdateRequestDto;
+import com.hanna.webservice.repository.PostsRepository;
+import com.hanna.webservice.dto.posts.PostsListResponseDto;
+import com.hanna.webservice.dto.posts.PostsResponseDto;
+import com.hanna.webservice.dto.posts.PostsSaveRequestDto;
+import com.hanna.webservice.dto.posts.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

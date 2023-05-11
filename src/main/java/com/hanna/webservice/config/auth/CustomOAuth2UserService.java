@@ -1,9 +1,8 @@
 package com.hanna.webservice.config.auth;
-
-import com.hanna.webservice.config.auth.dto.OAuthAttributes;
-import com.hanna.webservice.config.auth.dto.SessionUser;
+import com.hanna.webservice.config.dto.OAuthAttributes;
+import com.hanna.webservice.config.dto.SessionUser;
+import com.hanna.webservice.repository.UserRepository;
 import com.hanna.webservice.domain.user.User;
-import com.hanna.webservice.domain.user.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

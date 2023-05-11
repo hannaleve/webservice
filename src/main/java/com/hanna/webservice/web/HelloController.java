@@ -1,12 +1,11 @@
 package com.hanna.webservice.web;
 
-import com.hanna.webservice.web.dto.HelloResponseDto;
+import com.hanna.webservice.dto.posts.HelloResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 //@RestController //json으로 반환하는 컨트롤러
 @Controller

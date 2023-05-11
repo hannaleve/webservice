@@ -1,4 +1,4 @@
-package com.hanna.webservice.web.dto;
+package com.hanna.webservice.dto.posts;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

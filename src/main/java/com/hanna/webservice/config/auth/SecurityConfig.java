@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -27,8 +26,9 @@ public class SecurityConfig {
     @Bean
     @Order(SecurityProperties.BASIC_AUTH_ORDER)
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .headers().frameOptions().disable() //h2-console화면을 사용하기 위해 해당 옵션 disable
+        http.cors().disable() //cors 방지
+                .csrf().disable()  //csrf 방지
+                .headers().frameOptions().disable()
                 .and()
                 .authorizeHttpRequests() //URL별 권한 관리 설정하는 옵션 시작 진입
                 /*
@@ -54,9 +54,9 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
-        return encoder;
+    public BCryptPasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
     }
+
 
 }

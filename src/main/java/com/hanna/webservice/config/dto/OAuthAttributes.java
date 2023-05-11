@@ -1,4 +1,4 @@
-package com.hanna.webservice.config.auth.dto;
+package com.hanna.webservice.config.dto;
 
 import com.hanna.webservice.domain.user.Role;
 import com.hanna.webservice.domain.user.User;
@@ -42,14 +42,14 @@ public class OAuthAttributes { //OAuth2User의 attribute를 담을 DTO
     /*
     User Entity생성
     OAuthAttribute에서 엔티티 생성하는 시점 - 처음 가입 시
-    가입할 때 기본 권한 USER
+    로그인 시 GUEST / 추가정보입력 후 USER
      */
     public User toEntity() {
         return User.builder()
-                .name(name)
+                .nickname(name)
                 .email(email)
                 .picture(picture)
-                .role(Role.USER)
+                .role(Role.GUEST)
                 .build();
     }
 }
