@@ -3,13 +3,13 @@ package com.hanna.webservice.domain.user;
 import com.hanna.webservice.domain.posts.BaseTimeEntity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "users")
 public class User extends BaseTimeEntity {
@@ -21,10 +21,8 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false, length = 30, unique = true)
     private String nickname;
 
-    @Column(nullable = false, length = 100)
     private String password;
 
-    @Column(nullable = false)
     private String email;
 
     private String phone;
@@ -33,7 +31,6 @@ public class User extends BaseTimeEntity {
 
     private String city;
 
-    @Column
     private String picture;
 
     @Enumerated(EnumType.STRING)
@@ -43,11 +40,15 @@ public class User extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private SocialType socialType; // NAVER, GOOGLE , KAKAO
 
-    private String socialId; // 로그인한 소셜 타입 식별자 값 (일반 로그인인경우 null)
+    /*
+    로그인한 소셜 타입 식별자 값 (일반 로그인인경우 null)
+    구글 - "sub", 카카오 - "id", 네이버 - "id"
+     */
+    private String socialId;
 
-    private String refreshToken; //리프레시 토큰
+    private String refreshToken; //리프레시 토큰 저장용 (만료 시 비교)
 
-    // 유저 권한 설정 메소드
+    // 유저 권한 설정 메소드 ==> 추가정보입력 후 회원가입 시 권한 변경
     public void authorizeUser() {
         this.role = Role.USER;
     }
@@ -57,31 +58,11 @@ public class User extends BaseTimeEntity {
         this.password = passwordEncoder.encode(this.password);
     }
 
+    // 리프레시 토큰 재발급 후 업뎃 메소드
     public void updateRefreshToken(String updateRefreshToken) {
         this.refreshToken = updateRefreshToken;
     }
 
 
-    @Builder
-    public User(String nickname, String password,String phone, Integer age, String city, String email, String picture, Role role) {
-        this.nickname = nickname;
-        this.password = password;
-        this.phone = phone;
-        this.age = age;
-        this.city = city;
-        this.email = email;
-        this.picture = picture;
-        this.role = role;
-    }
 
-    public User update(String nickname, String picture) {
-        this.nickname = nickname;
-        this.picture = picture;
-
-        return this;
-    }
-
-    public String getRoleKey() {
-        return this.role.getKey();
-    }
 }
